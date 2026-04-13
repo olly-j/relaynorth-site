@@ -1,0 +1,326 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RelayNorth Systems — Stop Losing Jobs to Missed Calls</title>
+<meta name="description" content="Service businesses miss 1 in 5 calls. RelayNorth builds AI-powered response systems that recover missed callers, qualify leads, and trigger follow-up automatically.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a1a;background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:1060px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{padding:20px 0;border-bottom:1px solid #eee}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18px;font-weight:700;letter-spacing:-0.3px}
+.logo span{color:#2563eb}
+.nav-cta{background:#2563eb;color:#fff;padding:10px 20px;border-radius:6px;font-size:14px;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:#1d4ed8}
+
+/* HERO */
+.hero{padding:80px 0 70px;text-align:center;max-width:780px;margin:0 auto}
+.hero-eyebrow{display:inline-block;background:#eff6ff;color:#2563eb;font-size:13px;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:24px;letter-spacing:0.3px}
+.hero h1{font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px;color:#111}
+.hero h1 em{font-style:normal;color:#2563eb}
+.hero-sub{font-size:19px;color:#555;max-width:580px;margin:0 auto 36px;line-height:1.65}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#2563eb;color:#fff;padding:16px 32px;border-radius:8px;font-size:16px;font-weight:700;transition:all .2s;display:inline-block}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+.btn-secondary{background:#fff;color:#1a1a1a;padding:16px 32px;border-radius:8px;font-size:16px;font-weight:600;border:2px solid #e5e7eb;transition:all .2s;display:inline-block}
+.btn-secondary:hover{border-color:#2563eb;color:#2563eb}
+
+/* STATS BAR */
+.stats{background:#f8fafc;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:36px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+.stat-num{font-size:42px;font-weight:800;color:#2563eb;letter-spacing:-1px;line-height:1}
+.stat-label{font-size:14px;color:#666;margin-top:6px;line-height:1.4}
+@media(max-width:600px){.stats-grid{grid-template-columns:1fr;gap:32px}}
+
+/* PROBLEM */
+.problem{padding:80px 0}
+.problem h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.8px;margin-bottom:16px;color:#111}
+.problem-lead{font-size:19px;color:#444;max-width:640px;margin-bottom:48px;line-height:1.6}
+.problem-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pcard{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:28px;transition:all .2s}
+.pcard:hover{border-color:#2563eb;box-shadow:0 4px 16px rgba(37,99,235,.1)}
+.pcard-icon{font-size:28px;margin-bottom:14px}
+.pcard h3{font-size:16px;font-weight:700;margin-bottom:8px;color:#111}
+.pcard p{font-size:14px;color:#666;line-height:1.55}
+@media(max-width:700px){.problem-cards{grid-template-columns:1fr}}
+
+/* HOW IT WORKS */
+.how{padding:80px 0;background:#f8fafc}
+.section-label{font-size:13px;font-weight:600;color:#2563eb;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.how h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.8px;margin-bottom:48px;color:#111}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.step{text-align:center;padding:28px 20px}
+.step-num{width:44px;height:44px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;margin:0 auto 16px}
+.step h3{font-size:15px;font-weight:700;margin-bottom:8px;color:#111}
+.step p{font-size:13px;color:#666;line-height:1.55}
+@media(max-width:700px){.steps{grid-template-columns:1fr 1fr}}
+
+/* OFFER */
+.offer{padding:80px 0}
+.offer h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.8px;margin-bottom:16px;color:#111}
+.offer-lead{font-size:17px;color:#555;max-width:580px;margin-bottom:48px}
+.offer-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.ocard{border:2px solid #e5e7eb;border-radius:12px;padding:32px;position:relative}
+.ocard.featured{border-color:#2563eb;background:#eff6ff}
+.ocard-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#2563eb;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.ocard-title{font-size:18px;font-weight:800;margin-bottom:6px;color:#111}
+.ocard-price{font-size:28px;font-weight:800;color:#2563eb;margin:14px 0 4px;letter-spacing:-0.5px}
+.ocard-price-sub{font-size:13px;color:#888;margin-bottom:18px}
+.ocard ul{list-style:none;padding:0}
+.ocard ul li{font-size:14px;color:#444;padding:5px 0;padding-left:20px;position:relative}
+.ocard ul li::before{content:"✓";position:absolute;left:0;color:#2563eb;font-weight:700}
+@media(max-width:700px){.offer-cards{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about{padding:80px 0;background:#f8fafc}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about h2{font-size:clamp(26px,3.5vw,36px);font-weight:800;letter-spacing:-0.6px;margin-bottom:18px;color:#111}
+.about p{font-size:16px;color:#555;line-height:1.7;margin-bottom:16px}
+.about-right{background:#fff;border-radius:12px;padding:36px;border:1px solid #e5e7eb}
+.promise-item{display:flex;gap:14px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid #f0f0f0}
+.promise-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.promise-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.promise-text strong{display:block;font-size:15px;font-weight:700;margin-bottom:4px;color:#111}
+.promise-text span{font-size:14px;color:#666}
+@media(max-width:700px){.about-inner{grid-template-columns:1fr}}
+
+/* CTA */
+.cta-section{padding:80px 0;background:#111;text-align:center;color:#fff}
+.cta-section h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:16px}
+.cta-section p{font-size:17px;color:#aaa;max-width:500px;margin:0 auto 36px}
+.cta-section .btn-primary{background:#fff;color:#111;font-size:17px;padding:18px 40px}
+.cta-section .btn-primary:hover{background:#f0f0f0;transform:translateY(-1px)}
+.cta-note{font-size:13px;color:#666;margin-top:16px}
+
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid #eee;text-align:center}
+footer p{font-size:13px;color:#999}
+
+/* AUDIT BANNER */
+.audit-banner{background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:24px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.audit-banner-text strong{display:block;font-size:16px;font-weight:700;margin-bottom:4px}
+.audit-banner-text span{font-size:14px;color:#666}
+.audit-banner .btn-primary{font-size:14px;padding:12px 24px;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="logo">Relay<span>North</span> Systems</div>
+      <a href="mailto:hello@relaynorth.co.uk?subject=Systems Review Request" class="nav-cta">Book a free review →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">AI Response Systems for UK Service Businesses</div>
+    <h1>Your phone is ringing.<br><em>You're losing the jobs.</em></h1>
+    <p class="hero-sub">The average trades business misses 1 in 5 calls. At £300/job that's over £1,500 a month walking out the door. RelayNorth builds the system that catches it.</p>
+    <div class="hero-actions">
+      <a href="mailto:hello@relaynorth.co.uk?subject=Lead Leakage Audit Request" class="btn-primary">Get your free audit →</a>
+      <a href="#how-it-works" class="btn-secondary">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">1 in 5</div>
+        <div class="stat-label">calls go unanswered in busy service businesses</div>
+      </div>
+      <div>
+        <div class="stat-num">8 mins</div>
+        <div class="stat-label">is all it takes for a prospect to call your competitor instead</div>
+      </div>
+      <div>
+        <div class="stat-num">£1,500+</div>
+        <div class="stat-label">per month lost by a typical firm through slow or missed response</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="problem">
+  <div class="container">
+    <h2>The problem isn't demand. It's what happens to it.</h2>
+    <p class="problem-lead">Your customers are trying to reach you. The issue is that your response process — calls, callbacks, follow-ups, quote chasing — is slow, inconsistent, and invisible.</p>
+    <div class="problem-cards">
+      <div class="pcard">
+        <div class="pcard-icon">📵</div>
+        <h3>Missed calls with no recovery</h3>
+        <p>A missed call during a busy job is a lost opportunity unless something immediately picks it up. Most businesses have nothing.</p>
+      </div>
+      <div class="pcard">
+        <div class="pcard-icon">⏳</div>
+        <h3>Slow response kills conversion</h3>
+        <p>Prospects who wait more than 8 minutes for a response are 80% less likely to convert. Manual callbacks from a phone list don't cut it.</p>
+      </div>
+      <div class="pcard">
+        <div class="pcard-icon">📋</div>
+        <h3>Quote follow-up that never happens</h3>
+        <p>Quotes go out, then nothing. Manual chasing is inconsistent. Busy owners forget. Jobs that were half-won get lost to silence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how-it-works">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2>A complete response system. Set up in 48 hours.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Missed call fires instantly</h3>
+        <p>A caller hangs up. Within seconds they receive a text acknowledging the missed call and asking what they need.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Intent is qualified</h3>
+        <p>The system asks short qualifying questions. Emergency or routine? Residential or commercial? What's the job?</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Lead is routed</h3>
+        <p>High-priority leads are flagged immediately. Others are queued for a callback at the right time. Nothing falls through.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Follow-up runs automatically</h3>
+        <p>No reply? The system follows up at the right intervals. Quote sent but no response? Chase goes out automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offer" id="services">
+  <div class="container">
+    <div class="section-label">What we offer</div>
+    <h2>Three ways to work with us</h2>
+    <p class="offer-lead">Start with an audit to see exactly what you're losing, then implement the system that fixes it.</p>
+    <div class="offer-cards">
+      <div class="ocard">
+        <div class="ocard-title">Lead Leakage Audit</div>
+        <div class="ocard-price">£195</div>
+        <div class="ocard-price-sub">One-off diagnostic</div>
+        <ul>
+          <li>Map your current enquiry flow</li>
+          <li>Identify every leak point</li>
+          <li>Quantify the monthly revenue impact</li>
+          <li>Prioritised fix recommendations</li>
+          <li>Delivered within 48 hours</li>
+        </ul>
+      </div>
+      <div class="ocard featured">
+        <div class="ocard-badge">Most popular</div>
+        <div class="ocard-title">Relay Response System</div>
+        <div class="ocard-price">£750<span style="font-size:16px;font-weight:600">/mo</span></div>
+        <div class="ocard-price-sub">+ £1,500–£2,500 setup</div>
+        <ul>
+          <li>Missed-call text-back and qualification</li>
+          <li>Web and email enquiry handling</li>
+          <li>Lead routing and owner alerts</li>
+          <li>Automated follow-up sequences</li>
+          <li>Quote chase automation</li>
+          <li>Weekly pipeline report</li>
+          <li>Ongoing management and support</li>
+        </ul>
+      </div>
+      <div class="ocard">
+        <div class="ocard-title">Relay Growth System</div>
+        <div class="ocard-price">Custom</div>
+        <div class="ocard-price-sub">Expansion layer</div>
+        <ul>
+          <li>Everything in Response System</li>
+          <li>Dormant lead reactivation</li>
+          <li>Review request automation</li>
+          <li>Multi-channel follow-up</li>
+          <li>Advanced reporting and optimisation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="audit-banner">
+      <div class="audit-banner-text">
+        <strong>Not sure where to start? Get a Lead Leakage Audit first.</strong>
+        <span>We map your current enquiry flow, identify every point where revenue is slipping, and show you exactly what fixing it would look like. £195 flat. 48-hour turnaround.</span>
+      </div>
+      <a href="mailto:hello@relaynorth.co.uk?subject=Lead Leakage Audit — Request" class="btn-primary">Book your audit →</a>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <div class="section-label">How we work</div>
+        <h2>We build it. We run it. You just get more jobs.</h2>
+        <p>RelayNorth is a managed service, not software. We design your response workflow, implement it, and manage it ongoing. You don't log into anything new or manage any technology.</p>
+        <p>We work with plumbing and heating firms, electricians, HVAC businesses, roofers, and fire and security companies across the UK. If your business runs on enquiries and quotes, this works for you.</p>
+        <a href="mailto:hello@relaynorth.co.uk?subject=Systems Review" class="btn-primary" style="margin-top:8px">Talk to us →</a>
+      </div>
+      <div class="about-right">
+        <div class="promise-item">
+          <div class="promise-icon">⚡</div>
+          <div class="promise-text">
+            <strong>48-hour implementation</strong>
+            <span>From signed agreement to live workflow in two working days.</span>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">🔧</div>
+          <div class="promise-text">
+            <strong>Nothing to manage</strong>
+            <span>We handle the setup, monitoring, and changes. You focus on the work.</span>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">📊</div>
+          <div class="promise-text">
+            <strong>Clear reporting</strong>
+            <span>Weekly summary of leads recovered, responses sent, and pipeline status.</span>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">🛡️</div>
+          <div class="promise-text">
+            <strong>You stay in control</strong>
+            <span>Every workflow is approved by you. We handle nothing without your sign-off on the process.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Find out what you're losing.<br>It takes 15 minutes.</h2>
+    <p>Book a short systems review. We'll look at your current enquiry flow and tell you exactly where the revenue is going.</p>
+    <a href="mailto:hello@relaynorth.co.uk?subject=Systems Review — Book a call" class="btn-primary">Book a free 15-minute review →</a>
+    <div class="cta-note">No pitch. No commitment. Just a straight answer on where you're losing work.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>RelayNorth Systems · AI response and operations systems for UK service businesses · <a href="mailto:hello@relaynorth.co.uk" style="color:#2563eb">hello@relaynorth.co.uk</a></p>
+    <p style="margin-top:8px">© 2026 RelayNorth Systems. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
