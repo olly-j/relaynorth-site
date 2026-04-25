@@ -185,6 +185,14 @@ nav{background:var(--navy-900);padding:18px 0}
 .btn-white:hover{background:var(--navy-800)}
 .cta-note{font-size:13px;color:rgba(255,255,255,0.65);margin-top:16px}
 
+/* FAQ */
+.faq{background:var(--cream);padding:90px 0;border-top:1px solid var(--border)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:36px}
+.faq-item{background:var(--cream);padding:30px}
+.faq-item h3{font-family:'Barlow Condensed',sans-serif;font-size:27px;text-transform:uppercase;margin:0 0 10px;letter-spacing:0;color:var(--navy-900)}
+.faq-item p{margin:0;color:var(--muted);font-size:16px;line-height:1.62}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr}}
+
 /* FOOTER */
 footer{padding:36px 0;background:var(--navy-900);border-top:1px solid rgba(255,255,255,0.06)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
@@ -214,7 +222,11 @@ footer a:hover{opacity:1}
           <span>AI Response Systems</span>
         </div>
       </div>
-      <a href="mailto:hello@relaynorth.co.uk?subject=Systems Review Request" class="nav-cta">Book a free review &#8594;</a>
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+        <a href="#services" style="color:var(--muted);text-decoration:none;font-size:13px;font-weight:800;text-transform:uppercase">Services</a>
+        <a href="#faq" style="color:var(--muted);text-decoration:none;font-size:13px;font-weight:800;text-transform:uppercase">FAQ</a>
+        <a href="mailto:hello@relaynorth.co.uk?subject=Systems Review Request" class="nav-cta">Book a free review &#8594;</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -481,6 +493,31 @@ footer a:hover{opacity:1}
     <p>Book a short systems review. We&#8217;ll look at your current enquiry flow and tell you exactly where the revenue is going.</p>
     <a href="mailto:hello@relaynorth.co.uk?subject=Systems Review &#8212; Book a call" class="btn-white">Book a free 15-minute review &#8594;</a>
     <div class="cta-note">No pitch. No commitment. Just a straight answer on where you&#8217;re losing work.</div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label">Questions before you reply</div>
+    <h2 class="section-heading">Clear answers.<br>No inflated promises.</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>What happens after I buy the audit?</h3>
+        <p>You receive intake questions, we review your enquiry flow, and you get a practical fix list within 48 hours once the required information is available.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you answer calls live?</h3>
+        <p>Not until a phone provider, approved scripts, consent wording, and escalation rules are configured. We start with missed-call recovery and lead handling that can be tested safely.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is this software?</h3>
+        <p>RelayNorth is currently a managed service with automation behind it. You do not need to manage another tool just to stop enquiries going cold.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can you guarantee more work?</h3>
+        <p>No. We do not fake guarantees. The audit shows whether there is a real leakage problem and what fixing it would involve.</p>
+      </div>
+    </div>
   </div>
 </section>
 
