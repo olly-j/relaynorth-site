@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RelayNorth Demo - Missed-call and lead response system</title>
+<meta name="description" content="Try an interactive RelayNorth demo showing missed-call recovery, web enquiry handling, quote chase, owner alerts, and weekly reporting.">
+<style>
+:root{--ink:#0a1929;--panel:#10233b;--line:#d7e1ec;--bg:#f5f8fb;--white:#fff;--accent:#e8920a;--green:#148a56;--red:#b42318;--muted:#62758c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.55}button,input,select{font:inherit}a{color:inherit}.wrap{max-width:1200px;margin:0 auto;padding:26px}
+header{background:var(--ink);color:white}.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 26px;max-width:1200px;margin:0 auto}.brand{font-weight:900;letter-spacing:-.02em}.nav a{color:#dbe7f3;text-decoration:none;font-weight:800;font-size:14px}.nav .cta{background:var(--accent);color:white;padding:10px 14px;border-radius:4px}
+.hero{background:var(--ink);color:white;padding:42px 0 34px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}.eyebrow{color:#f7b957;text-transform:uppercase;font-size:12px;font-weight:900;letter-spacing:.16em}h1{font-size:clamp(38px,6vw,72px);line-height:.95;margin:12px 0 16px;letter-spacing:-.04em}p.lead{color:#c7d7e7;font-size:18px;max-width:650px}.hero-card{background:#0e223a;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:18px}.hero-card .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.hero-card strong{display:block;color:#f7b957;font-size:26px}.hero-card span{color:#a8bbcf;font-size:13px}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:18px;margin-top:22px}.panel{background:white;border:1px solid var(--line);border-radius:8px;padding:20px}.panel.dark{background:var(--panel);color:white;border-color:#203d5d}.panel h2{font-size:20px;margin:0 0 12px}.scenario{width:100%;border:1px solid var(--line);background:white;text-align:left;padding:12px;border-radius:6px;margin:8px 0;cursor:pointer}.scenario.active{border-color:var(--accent);box-shadow:0 0 0 3px #f8deb1}.scenario b{display:block}.scenario span{color:var(--muted);font-size:13px}.dark .scenario{background:#132b48;border-color:#274666;color:white}.dark .scenario span{color:#a8bbcf}.stage{display:grid;grid-template-columns:34px 1fr;gap:12px;margin:12px 0}.dot{width:28px;height:28px;border-radius:50%;background:#203d5d;color:white;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px}.stage.done .dot{background:var(--green)}.stage.block .dot{background:var(--red)}.bubble{background:#0b1728;border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:12px;color:#dbe7f3;min-height:56px}.bubble b{color:white}.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.outbox,.record{font-size:14px}.outbox div,.record div{padding:10px 0;border-bottom:1px solid var(--line)}.outbox div:last-child,.record div:last-child{border-bottom:0}.tag{display:inline-block;background:#fff0d4;color:#8a5200;font-size:12px;font-weight:900;padding:3px 8px;border-radius:99px}.ok{color:var(--green);font-weight:900}.risk{color:var(--red);font-weight:900}.report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.report-grid div{background:#f8fbfe;border:1px solid var(--line);border-radius:6px;padding:12px}.report-grid strong{display:block;font-size:24px}.timeline{position:relative;min-height:306px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.controls button{border:0;background:var(--accent);color:white;font-weight:900;padding:10px 14px;border-radius:4px;cursor:pointer}.controls button.secondary{background:#2c4a6b}.notice{background:#fff8ea;border:1px solid #f4cd88;border-radius:8px;padding:18px;margin-top:18px}.enterprise{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.line-list{max-height:260px;overflow:auto;border:1px solid var(--line);border-radius:6px}.line-row{display:grid;grid-template-columns:80px 1fr 90px;gap:8px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:14px}.line-row:last-child{border-bottom:0}.cta-strip{margin-top:22px;background:var(--ink);color:white;border-radius:8px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.cta-strip a{background:var(--accent);text-decoration:none;border-radius:4px;padding:12px 16px;font-weight:900}
+@media(max-width:860px){.hero-grid,.layout,.cols,.enterprise{grid-template-columns:1fr}.nav{display:block}.nav div:last-child{margin-top:12px}.report-grid{grid-template-columns:1fr 1fr}.cta-strip{display:block}.cta-strip a{display:inline-block;margin-top:12px}}@media(max-width:520px){.hero-card .kpi,.report-grid{grid-template-columns:1fr}.wrap{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="brand">RelayNorth Systems</div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <a href="index.html">Home</a>
+      <a href="#enterprise">Enterprise demo</a>
+      <a class="cta" href="book.html">Request a review</a>
+    </div>
+  </nav>
+</header>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Interactive product demo</div>
+      <h1>Watch a missed enquiry become a routed lead.</h1>
+      <p class="lead">This playable demo shows what RelayNorth installs for service businesses: instant acknowledgement, safe qualification, owner alerts, quote chase, pipeline reporting, and human review for risky cases.</p>
+    </div>
+    <div class="hero-card">
+      <div class="kpi">
+        <div><strong>5 min</strong><span>target first response</span></div>
+        <div><strong>24/7</strong><span>local queue processing when providers are connected</span></div>
+        <div><strong>0</strong><span>live sends in this demo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="wrap">
+  <section class="layout" aria-label="Playable product demo">
+    <aside class="panel">
+      <h2>Choose a scenario</h2>
+      <button class="scenario active" data-scenario="missed"><b>Missed urgent call</b><span>Caller has a burst pipe</span></button>
+      <button class="scenario" data-scenario="web"><b>Web enquiry</b><span>Standard boiler repair request</span></button>
+      <button class="scenario" data-scenario="quote"><b>Quote chase</b><span>Warm lead asks for next date</span></button>
+      <button class="scenario" data-scenario="risk"><b>Risky request</b><span>Refund and bank details</span></button>
+      <div class="notice"><b>Real product behaviour:</b><br>Low-risk actions are queued for providers. Legal, refund, pricing, bank, and unsafe advice requests stop for review.</div>
+    </aside>
+    <section class="panel dark">
+      <h2>Playable response simulation</h2>
+      <p id="scenario-title" style="margin-top:-6px;color:#a8bbcf;font-weight:800">Missed urgent call</p>
+      <div class="timeline" id="timeline"></div>
+      <div class="controls">
+        <button id="replay">Replay scenario</button>
+        <button class="secondary" id="next">Next scenario</button>
+      </div>
+    </section>
+  </section>
+  <section class="cols">
+    <div class="panel">
+      <h2>Provider outbox</h2>
+      <div class="outbox" id="outbox"></div>
+    </div>
+    <div class="panel">
+      <h2>CRM-style lead record</h2>
+      <div class="record" id="record"></div>
+    </div>
+  </section>
+  <section class="panel" style="margin-top:18px">
+    <h2>Weekly pipeline report preview</h2>
+    <div class="report-grid" id="report"></div>
+  </section>
+  <section class="enterprise" id="enterprise">
+    <div class="panel">
+      <h2>Enterprise version: many lines, one operating model</h2>
+      <p>For larger businesses, each phone line, branch, trade, or service team gets its own routing rules, owner alerts, callback hours, and reporting roll-up.</p>
+      <div class="report-grid">
+        <div><strong id="line-count">25</strong><span>service lines</span></div>
+        <div><strong id="event-count">100</strong><span>events simulated</span></div>
+        <div><strong id="task-count">75</strong><span>tasks/outbox items</span></div>
+        <div><strong>0</strong><span>external sends in demo</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Line health sample</h2>
+      <div class="line-list" id="lines"></div>
+    </div>
+  </section>
+  <section class="cta-strip">
+    <div><b>Want this preview using your own business?</b><br>RelayNorth can generate a safe pre-sale demo from your real enquiry flow before you buy.</div>
+    <a href="book.html">Request a demo</a>
+  </section>
+</main>
+<script>
+const data = {
+  missed: {
+    title: 'Missed urgent call',
+    stages: [
+      ['Phone provider event', 'Missed call from Nadia: burst pipe, water through ceiling.', 'done'],
+      ['Classification', 'Route: urgent escalation. Reason: emergency keyword.', 'done'],
+      ['Customer text-back', 'Thanks for calling. This sounds urgent, so the team has been alerted for immediate callback.', 'done'],
+      ['Owner alert', 'Immediate callback task and alert created with caller phone, location, and transcript.', 'done']
+    ],
+    outbox: [['SMS', 'queued_provider_required'], ['Owner alert', 'queued_provider_required'], ['Callback task', 'open']],
+    record: [['route', 'urgent_escalation'], ['lead status', 'urgent_callback_open'], ['SLA', 'immediate'], ['human review', 'not required']],
+    report: [['Recovered calls', 1], ['Urgent alerts', 1], ['Open callbacks', 1], ['Blocked risks', 0]]
+  },
+  web: {
+    title: 'Standard web enquiry',
+    stages: [
+      ['Web form', 'Sam asks about boiler repair in Stockport.', 'done'],
+      ['Classification', 'Route: standard callback. Source and contact details captured.', 'done'],
+      ['Customer reply', 'Acknowledgement asks for job type, postcode, urgency, and callback preference.', 'done'],
+      ['Task + CRM', 'Callback task created and visible in weekly report.', 'done']
+    ],
+    outbox: [['Email response', 'queued_provider_required'], ['Callback task', 'open'], ['CRM record', 'written']],
+    record: [['route', 'standard_callback'], ['lead status', 'open'], ['source', 'web_form'], ['owner', 'service desk']],
+    report: [['New leads', 1], ['Routed', 1], ['Follow-ups', 1], ['Blocked risks', 0]]
+  },
+  quote: {
+    title: 'Quote chase',
+    stages: [
+      ['Customer reply', 'Priya asks when the quote can be booked.', 'done'],
+      ['Classification', 'Route: quote follow-up. No pricing promises made.', 'done'],
+      ['Response', 'Acknowledges request and says team will confirm next step.', 'done'],
+      ['Follow-up cadence', 'Task opened for 2, 5, and 10 working day chase.', 'done']
+    ],
+    outbox: [['Email response', 'queued_provider_required'], ['Quote chase task', 'open'], ['Report row', 'written']],
+    record: [['route', 'quote_follow_up'], ['lead status', 'open'], ['cadence', '2/5/10 working days'], ['human review', 'not required']],
+    report: [['Quotes chased', 1], ['Stale leads', 0], ['Open tasks', 1], ['Blocked risks', 0]]
+  },
+  risk: {
+    title: 'Risky request',
+    stages: [
+      ['Customer message', 'Guarantee a refund and send bank details before I book.', 'block'],
+      ['Safety gate', 'Pricing, refund, and bank-detail triggers detected.', 'block'],
+      ['Automation stops', 'No customer-facing reply is dispatched.', 'block'],
+      ['Human packet', 'Review record created with matched risk categories.', 'done']
+    ],
+    outbox: [['Customer response', 'blocked_human_review'], ['Review alert', 'queued_provider_required'], ['Callback task', 'not created']],
+    record: [['route', 'human_review'], ['lead status', 'needs_human_review'], ['risk', 'refund/payment/legal'], ['external send', 'blocked']],
+    report: [['New leads', 1], ['Routed', 0], ['Follow-ups', 0], ['Blocked risks', 1]]
+  }
+};
+let current = 'missed';
+const order = Object.keys(data);
+function renderScenario(name){
+  current = name;
+  document.querySelectorAll('.scenario').forEach(btn => btn.classList.toggle('active', btn.dataset.scenario === name));
+  document.getElementById('scenario-title').textContent = data[name].title;
+  const timeline = document.getElementById('timeline');
+  timeline.innerHTML = '';
+  data[name].stages.forEach((stage, i) => {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'stage ' + stage[2];
+      el.innerHTML = `<div class="dot">${i+1}</div><div class="bubble"><b>${stage[0]}</b><br>${stage[1]}</div>`;
+      timeline.appendChild(el);
+    }, i * 260);
+  });
+  document.getElementById('outbox').innerHTML = data[name].outbox.map(row => `<div><b>${row[0]}</b><br><span class="${row[1].includes('blocked') ? 'risk' : 'ok'}">${row[1]}</span></div>`).join('');
+  document.getElementById('record').innerHTML = data[name].record.map(row => `<div><b>${row[0]}</b><br>${row[1]}</div>`).join('');
+  document.getElementById('report').innerHTML = data[name].report.map(row => `<div><strong>${row[1]}</strong><span>${row[0]}</span></div>`).join('');
+}
+document.querySelectorAll('.scenario').forEach(btn => btn.addEventListener('click', () => renderScenario(btn.dataset.scenario)));
+document.getElementById('replay').addEventListener('click', () => renderScenario(current));
+document.getElementById('next').addEventListener('click', () => renderScenario(order[(order.indexOf(current)+1)%order.length]));
+const lines = document.getElementById('lines');
+for(let i=1;i<=25;i++){
+  const status = i % 7 === 0 ? 'review' : i % 4 === 0 ? 'busy' : 'healthy';
+  const row = document.createElement('div');
+  row.className = 'line-row';
+  row.innerHTML = `<b>Line ${String(i).padStart(3,'0')}</b><span>${i%3===0?'Heating':'Service'} team</span><span class="${status==='review'?'risk':'ok'}">${status}</span>`;
+  lines.appendChild(row);
+}
+renderScenario('missed');
+</script>
+</body>
+</html>
